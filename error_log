@@ -1,0 +1,3 @@
+[15-Sep-2020 17:15:05 America/Sao_Paulo] PHP Fatal error:  Call to a member function insert() on null in /home/lagunain/public_html/admin/application/controllers/Companies.php on line 157
+[15-Sep-2020 23:05:02 America/Sao_Paulo] PHP Fatal error:  Call to a member function select() on null in /home/lagunain/public_html/admin/application/controllers/Webservice.php on line 49
+[05-Oct-2020 19:31:21 America/Sao_Paulo] PHP Fatal error:  Call to a member function getAllCategories() on null in /home/lagunain/public_html/admin/application/controllers/Partners.php on line 44
