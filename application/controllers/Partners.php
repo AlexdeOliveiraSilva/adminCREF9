@@ -103,43 +103,23 @@ class Partners extends CI_Controller
 	{
 		$this->load->model('partners_model');
 		$this->load->model('user_model');
+		$this->load->library('awslib');
 		$dados = $this->input->post();
-		$password = $dados['password'];
-		unset($dados['password']);
-		$dados['image'] = "";
-
-		$nomedoarquivo = "";
-		$config['upload_path'] = './assets/upload/';
-		$config['max_size']	= '100000';
-		$config['max_width']  = '10240';
-		$config['max_height']  = '7680';
-		$config['allowed_types'] = 'jpg|png';
 
 
-		$extensao = $this->extensao($_FILES['image']['name']);
+		if (!empty($_FILES['image']['name'])) {
+			$extensao = $this->extensao($_FILES['image']['name']);
 
-		$nomedoarquivo = $this->generateRandomString(20) . "." . $extensao;
-		$config['file_name'] = $nomedoarquivo;
-		$this->load->library('upload', $config);
-		if (!$this->upload->do_upload("image")) {
-			print($this->upload->display_errors());
-			$nomedoarquivo = "";
-			die;
+			$nomedoarquivo = "img/" . $this->generateRandomString(20) . "." . $extensao;
+
+			$return = $this->awslib->uploadFile($_FILES['image'], $nomedoarquivo);
+
+			if ($nomedoarquivo != "") {
+				$dados['img'] =  $nomedoarquivo;
+			}
 		}
 
-		if ($nomedoarquivo != "") {
-			$dados['image'] = $nomedoarquivo;
-		}
-
-		$d = $this->partners_model->insert($dados);
-		$data = array();
-		$data['name'] = $dados['name'];
-		$data['email'] =  $dados['email'];
-		$data['password'] = md5($password);
-		$data['profile'] = 2;
-		$data['partners'] = $d;
-		$this->user_model->insert($data);
-
+		$this->partners_model->insert($dados);
 		redirect("Partners");
 	}
 }

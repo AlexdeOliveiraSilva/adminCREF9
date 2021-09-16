@@ -49,7 +49,7 @@
                         <?php echo $item->title;?>
                     </td>
                     <td>
-                        <?php echo $item->code == "" ? "Cupom" : "Hot Site";?>
+                        <?php echo $item->code !== "" ? "Cupom" : "Hot Site";?>
                     </td>
                     <td>
                         <?php echo $item->nameCategory;?>
