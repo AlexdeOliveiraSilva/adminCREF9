@@ -32,7 +32,7 @@ class Cursos_model extends CI_Model
     {
 
         $this->db->select("*");
-        $this->db->from("coursesCategoriesId");
+        $this->db->from("coursesCategories");
         $this->db->order_by("title", "asc");
         $this->db->where("situation", 1);
         $query = $this->db->get();

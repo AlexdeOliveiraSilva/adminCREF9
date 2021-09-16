@@ -7,7 +7,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">
-                        <a href="<?php echo base_url('index.php/Partners/'); ?>"><button class='btn btn-danger'>Cancelar</button></a>
+                        <a href="<?php echo base_url('index.php/'.(isset($backController) ? $backController : "Partners")); ?>"><button class='btn btn-danger'>Cancelar</button></a>
                     </li>
                 </ol>
             </div><!-- /.col -->
