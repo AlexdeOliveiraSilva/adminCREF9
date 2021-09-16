@@ -25,24 +25,24 @@ class Cursos extends CI_Controller
 
 	public function edit($id)
 	{
-		$this->load->model('partners_model');
+		$this->load->model('cursos_model');
 		$data = array();
-		$data['title'] = "Atualizar parceiro";
-		$data['action'] = base_url('index.php/Partners/update/' . $id);
-		$data['pagina'] = "addpartner";
-		$data['categories'] = $this->partners_model->getAllCategories();
-		$data['partner'] = $this->partners_model->select($id);
+		$data['title'] = "Atualizar curso";
+		$data['action'] = base_url('index.php/Cursos/update/' . $id);
+		$data['pagina'] = "addcurso";
+		$data['categories'] = $this->cursos_model->getAllCategories();
+		$data['partner'] = $this->cursos_model->select($id);
 		$this->load->view('home', $data);
 	}
 
 	public function add()
 	{
-		$this->load->model('partners_model');
+		$this->load->model('cursos_model');
 		$data = array();
-		$data['title'] = "Adicionar parceiro";
-		$data['action'] = base_url('index.php/Partners/save');
-		$data['pagina'] = "addpartner";
-		$data['categories'] = $this->partners_model->getAllCategories();
+		$data['title'] = "Adicionar curso";
+		$data['action'] = base_url('index.php/Cursos/save');
+		$data['pagina'] = "addcurso";
+		$data['categories'] = $this->cursos_model->getAllCategories();
 
 		$this->load->view('home', $data);
 	}
@@ -54,7 +54,7 @@ class Cursos extends CI_Controller
 	public function update($id)
 	{
 		$this->load->library('awslib');
-		$this->load->model('partners_model');
+		$this->load->model('cursos_model');
 		$this->load->model('user_model');
 		$dados = $this->input->post();
 
@@ -72,10 +72,10 @@ class Cursos extends CI_Controller
 			}
 		}
 
-		$this->partners_model->update($dados, $id);
+		$this->cursos_model->update($dados, $id);
 
 
-		redirect("Partners");
+		redirect("Cursos");
 	}
 
 	private function extensao($nome)
@@ -101,11 +101,9 @@ class Cursos extends CI_Controller
 
 	public function save()
 	{
-		$this->load->model('partners_model');
-		$this->load->model('user_model');
+		$this->load->model('cursos_model');
 		$this->load->library('awslib');
 		$dados = $this->input->post();
-
 
 		if (!empty($_FILES['image']['name'])) {
 			$extensao = $this->extensao($_FILES['image']['name']);
@@ -119,7 +117,9 @@ class Cursos extends CI_Controller
 			}
 		}
 
-		$this->partners_model->insert($dados);
-		redirect("Partners");
+		
+
+		$this->cursos_model->insert($dados);
+		redirect("Cursos");
 	}
 }
