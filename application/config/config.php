@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 define('BASE_URL_IMAGEM', "https://cref9.s3.amazonaws.com/");
 
@@ -25,9 +25,9 @@ $whitelist = array(
     '::1',
     'localhost:8080'
 );
-if(!in_array($_SERVER['HTTP_HOST'], $whitelist)){
-    $config['base_url'] = 'http://administracao.crefprbeneficios.com.br';
-}else{
+if (!in_array($_SERVER['HTTP_HOST'], $whitelist)) {
+    $config['base_url'] = 'http://admin.crefprbeneficios.com.br';
+} else {
     $config['base_url'] = 'http://localhost:8080/';
 }
 
@@ -47,8 +47,8 @@ if(!in_array($_SERVER['HTTP_HOST'], $whitelist)){
 $config['index_page'] = 'index.php';
 
 //AWS Credencial
-$config['aws_access_key']="AKIAWQGI7YEK3QPG26U7";
-$config['aws_secret_key']="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";
+$config['aws_access_key'] = "AKIAWQGI7YEK3QPG26U7";
+$config['aws_secret_key'] = "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";
 
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ $config['aws_secret_key']="OF4PRPPKa7Huu1Yp/uwXfInlUWd6IosrFplvWBuj";
 |
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
-$config['uri_protocol']	= 'REQUEST_URI';
+$config['uri_protocol']    = 'REQUEST_URI';
 
 /*
 |--------------------------------------------------------------------------
@@ -89,7 +89,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']    = 'english';
 
 /*
 |--------------------------------------------------------------------------
@@ -403,11 +403,11 @@ $config['sess_regenerate_destroy'] = FALSE;
 |       'cookie_httponly') will also affect sessions.
 |
 */
-$config['cookie_prefix']	= '';
-$config['cookie_domain']	= '';
-$config['cookie_path']		= '/';
-$config['cookie_secure']	= FALSE;
-$config['cookie_httponly'] 	= FALSE;
+$config['cookie_prefix']    = '';
+$config['cookie_domain']    = '';
+$config['cookie_path']        = '/';
+$config['cookie_secure']    = FALSE;
+$config['cookie_httponly']     = FALSE;
 
 /*
 |--------------------------------------------------------------------------
