@@ -1,12 +1,12 @@
 <?php
-class Partners_model extends CI_Model
+class Cursos_model extends CI_Model
 {
     public function insert($data)
     {
-        $this->db->insert("partners", $data);
+        $this->db->insert("courses", $data);
 
         $this->db->select("max(id) as id");
-        $this->db->from("partners");
+        $this->db->from("courses");
         $query = $this->db->get();
         $result = $query->result();
         if (isset($result[0]))
@@ -18,9 +18,9 @@ class Partners_model extends CI_Model
 
     public function selectAll()
     {
-        $this->db->select("partners.*, partnersCategories.title as nameCategory");
-        $this->db->from("partners");
-        $this->db->join("partnersCategories", "partnersCategories.id = partners.partnersCategoriesId");
+        $this->db->select("courses.*, coursesCategories.title as nameCategory");
+        $this->db->from("courses");
+        $this->db->join("coursesCategories", "coursesCategories.id = courses.coursesCategoriesId");
         $this->db->order_by("title", "asc");
 
         $query = $this->db->get();
@@ -32,7 +32,7 @@ class Partners_model extends CI_Model
     {
 
         $this->db->select("*");
-        $this->db->from("partnersCategories");
+        $this->db->from("coursesCategoriesId");
         $this->db->order_by("title", "asc");
         $this->db->where("situation", 1);
         $query = $this->db->get();
@@ -49,7 +49,7 @@ class Partners_model extends CI_Model
     public function select($id)
     {
         $this->db->select("*");
-        $this->db->from("partners");
+        $this->db->from("courses");
         $this->db->where("id", $id);
         $query = $this->db->get();
         $result = $query->result();
@@ -62,19 +62,19 @@ class Partners_model extends CI_Model
     public function update($data, $id)
     {
         $this->db->where("id", $id);
-        $this->db->update("partners", $data);
+        $this->db->update("courses", $data);
     }
 
     public function updateCategory($data, $id)
     {
         $this->db->where("id", $id);
-        $this->db->update("partnersCategories", $data);
+        $this->db->update("coursesCategories", $data);
     }
 
     public function selectCategory($id)
     {
         $this->db->select("*");
-        $this->db->from("partnersCategories");
+        $this->db->from("coursesCategories");
         $this->db->where("id", $id);
         $query = $this->db->get();
         $result = $query->result();
@@ -86,6 +86,6 @@ class Partners_model extends CI_Model
 
     public function insertCategoriy($data)
     {
-        $this->db->insert("partnersCategories", $data);
+        $this->db->insert("coursesCategories", $data);
     }
 }
