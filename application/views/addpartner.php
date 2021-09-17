@@ -60,11 +60,20 @@
           <br />
           <div class="row">
             <div class="col">
-              <label>Descrição</label>
-              <textarea type="text" maxlength="50" rows=4 class="form-control" placeholder="Descrição" name="shortdescription" id="shortdescription"><?php if (isset($partner)) echo $partner->shortdescription; ?></textarea>
+              <label>Descrição Curta</label>
+              <textarea type="text" maxlength="50" rows=4 class="form-control" placeholder="Descrição curta" name="shortdescription" id="shortdescription"><?php if (isset($partner)) echo $partner->shortdescription; ?></textarea>
             </div>
           </div>
           <br />
+
+          <div class="row">
+            <div class="col">
+              <label>Descrição Longa</label>
+              <textarea type="text" rows=4 class="form-control" placeholder="Descrição" name="description" id="description"><?php if (isset($partner)) echo $partner->description; ?></textarea>
+            </div>
+          </div>
+
+          </br>
 
           <div class="row">
             <div class="col">
