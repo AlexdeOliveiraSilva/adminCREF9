@@ -102,6 +102,15 @@
             </li>
 
             <li class="nav-item">
+              <a href="<?php echo base_url('index.php/Diretoria'); ?>" class="nav-link">
+                <i class="nav-icon fas fa-handshake"></i>
+                <p>
+                  Diretoria
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a href="<?php echo base_url('index.php/Notification'); ?>" class="nav-link">
                 <i class="nav-icon fas fa-sms"></i>
                 <p>
