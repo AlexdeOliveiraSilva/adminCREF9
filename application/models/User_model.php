@@ -23,6 +23,16 @@ class User_model extends CI_Model
                 $this->db->insert("usersAdmin", $data);
         }
 
-
-      
+        public function selectAllUtilizatons()
+        {
+                $this->db->select("accessPartner.createdAt, users.registration, partners.title as partners");
+                $this->db->from("accessPartner");
+                $this->db->join("partners", "partners.id = accessPartner.partnersId");
+                $this->db->join("users", "users.id = accessPartner.usersId");
+                $this->db->where("accessPartner.used", 1);
+                $this->db->order_by("accessPartner.createdAt", "DESC");
+                $query = $this->db->get();
+                $result = $query->result();
+                return $result;
+        }
 }

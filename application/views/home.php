@@ -82,7 +82,7 @@
             </li>
 
 
-            
+
             <li class="nav-item">
               <a href="<?php echo base_url('index.php/Partners'); ?>" class="nav-link">
                 <i class="nav-icon fas fa-handshake"></i>
@@ -119,6 +119,15 @@
               </a>
             </li>
 
+
+            <li class="nav-item">
+              <a href="<?php echo base_url('index.php/UsesReport'); ?>" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Utilizações
+                </p>
+              </a>
+            </li>
 
 
 
