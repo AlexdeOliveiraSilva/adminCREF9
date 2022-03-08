@@ -36,7 +36,7 @@ class Notification extends CI_Controller
 		$msg = array(
 			'body' => $data['body'], 
 			'title' => $data['title'],);
-		print_r($this->sendGCM($msg));die;
+		$data['result'] = json_encode($this->sendGCM($msg));
 		$this->notifications_model->insert($data);
 		redirect('Notification');
 	}
@@ -61,17 +61,17 @@ class Notification extends CI_Controller
 			'included_segments' => array(
 				'Subscribed Users'
 			),
-			'data' => array(
+			// 'data' => array(
 				
-			),
+			// ),
 			'contents' => $content,
 			'headings'=> array("en"=> $message['title'], "pt"=> $message['title']),
 			'web_buttons' => $hashes_array
 		);
 		
 		$fields = json_encode($fields);
-		print("\nJSON sent:\n");
-		print($fields);
+		// print("\nJSON sent:\n");
+		// print($fields);
 		
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
