@@ -10,9 +10,9 @@ class Notifications_model extends CI_Model
 
     public function selectAll()
     {
-        $this->db->select("notifications.*, companys.name as CompanysName");
+        $this->db->select("notifications.*");
         $this->db->from("notifications");
-        $this->db->join("companys", "companys.id = notifications.companys");
+
         $this->db->order_by("notifications.sendDateTime", "DESC");
         $this->db->where("notifications.situation", 1);
         $query = $this->db->get();
