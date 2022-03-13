@@ -44,7 +44,7 @@ class Notification extends CI_Controller
 	private function sendGCM($message) {
 		$content    = array(
 			"en" => $message['body'],
-			"pt" => $message['body'],
+			// "pt" => $message['body'],
 		);
 		
 		$hashes_array = array();
@@ -65,14 +65,14 @@ class Notification extends CI_Controller
 				
 			// ),
 			'contents' => $content,
-			'headings'=> array("en"=> $message['title'], "pt"=> $message['title']),
-			'web_buttons' => $hashes_array
+			'headings'=> array("en"=> $message['title']),
+			// 'web_buttons' => $hashes_array
 		);
 		
 		$fields = json_encode($fields);
 		// print("\nJSON sent:\n");
 		// print($fields);
-		
+		// die;
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
