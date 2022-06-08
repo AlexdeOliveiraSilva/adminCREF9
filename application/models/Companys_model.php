@@ -20,7 +20,7 @@ class Companys_model extends CI_Model
 
         public function selectAll()
         {
-                $this->db->select("companys.*, (select count(*) FROM customers WHERE customers.companys = companys.id and situation = 1) as totaldeusuarios");
+                $this->db->select("companys.*, (select count(*) FROM users WHERE users.companysId = companys.id and users.situation = 1) as totaldeusuarios");
                 $this->db->from("companys");
                 $this->db->order_by("name", "asc");
                 $this->db->where("situation", 1);

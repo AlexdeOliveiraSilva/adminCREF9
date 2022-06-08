@@ -71,6 +71,15 @@
 
 
 
+          <li class="nav-item">
+              <a href="<?php echo base_url('index.php/Companys'); ?>" class="nav-link">
+              <i class="fa-solid fa-building"></i>
+                <p>
+                  Empresas
+                </p>
+              </a>
+            </li>
+
 
             <li class="nav-item">
               <a href="<?php echo base_url('index.php/Customers'); ?>" class="nav-link">

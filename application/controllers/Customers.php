@@ -12,33 +12,9 @@ class Customers extends CI_Controller
 		}
 	}
 
-	public function searchCPF()
-	{
-		$this->load->model('customers_model');
-		header('Access-Control-Allow-Origin: *');
-		header('Content-type: application/json');
-		$search = $this->customers_model->searchCPF($this->input->post("cpf"));
-		$data = array();
-		$data['status'] = "NAOOK";
-		$data['nome'] = "";
-		$data['id'] = "";
-		if ($search !== -1) {
-			$data['nome'] = $search->cliente;
-			$data['id'] = $search->id;
-			$data['status'] = "OK";
-		}
-		echo json_encode($data);
-	}
 
-	public function saveRegistre()
-	{
-		$this->load->model('customers_model');
-		$customers = $this->input->post("customers");
-		$data = array();
-		$data['customers'] = $customers;
-		$data['partners'] = $this->session->userdata('user')->partners;
-		$this->customers_model->insertValidation($data);
-	}
+
+
 
 	public function index()
 	{
@@ -113,13 +89,4 @@ class Customers extends CI_Controller
 	}
 
 
-	public function report()
-	{
-		$this->load->model('customers_model');
-		$data = array();
-		$data['pagina'] = "reportvalidations";
-		$data['list'] = $this->customers_model->selectAllValidations();
-
-		$this->load->view('home', $data);
-	}
 }

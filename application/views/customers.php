@@ -28,10 +28,8 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>Cliente</th>
-                <th>E-mail</th>
-                <th>Cidade</th>
-                <th>CPF</th>
+                <th>Nome</th>
+                <th>Documento</th>
                 <th>Empresa</th>
               </tr>
             </thead>
@@ -41,27 +39,14 @@
               ?>
                 <tr style="cursor:pointer;" onClick="location='<?php echo base_url('index.php/Customers/edit/'.$item->id)?>';">
                     <td>
-                        <?php echo $item->cliente;?>
+                        <?php echo $item->name;?>
                     </td>
                     <td>
-                        <?php echo $item->email;?>
+                        <?php echo $item->registration;?>
                     </td>
-                    <td>
-                        <?php echo $item->cidade;?>
-                    </td>
-                    <td>
-                        <?php echo $item->cpf;?>
-                    </td>
-
                     <td>
                         <?php echo $item->companysName;?>
-                    </td>
-
-
-                  
-
-
-                    
+                    </td> 
                 </tr>
               <?php
               endforeach;
