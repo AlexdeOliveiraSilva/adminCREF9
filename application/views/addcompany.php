@@ -90,9 +90,24 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col">
+                            <label>Link denuncias</label>
+                            <input type="text" class="form-control" placeholder="Link para denuncias" value="<?php if (isset($partner)) echo $partner->linkdenuncias; ?>" autofocus=true name="linkdenuncias" id="linkdenuncias">
+                        </div>
+                    </div>
 
 
                     <br />
+                    <div class="row">
+                        <div class="col">
+                            <label>Texto Atendimento</label>
+                            <textarea type="text" class="form-control" rows=2 name="textAtendimento" id="textAtendimento"><?php if (isset($partner)) echo $partner->textAtendimento; ?></textarea>
+                        </div>
+                    </div>
+                    <br />
+
+                
 
                     <div class="row">
                         <div class="col">
