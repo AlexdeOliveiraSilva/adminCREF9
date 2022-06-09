@@ -56,6 +56,20 @@ class Companys extends CI_Controller
 		$dados = $this->input->post();
 
 
+		if (!empty($_FILES['imgMissao']['name'])) {
+			$extensao = $this->extensao($_FILES['imgMissao']['name']);
+
+			$nomedoarquivo = "imgMissao/" . $this->generateRandomString(20) . "." . $extensao;
+
+			$return = $this->awslib->uploadFile($_FILES['imgMissao'], $nomedoarquivo);
+
+
+			if ($nomedoarquivo != "") {
+				$dados['imgMissao'] =  $nomedoarquivo;
+			}
+		}
+
+
 
 		if (!empty($_FILES['logo']['name'])) {
 			$extensao = $this->extensao($_FILES['logo']['name']);
@@ -102,21 +116,34 @@ class Companys extends CI_Controller
 		$this->load->library('awslib');
 		$dados = $this->input->post();
 
-		if (!empty($_FILES['image']['name'])) {
-			$extensao = $this->extensao($_FILES['image']['name']);
+		if (!empty($_FILES['logo']['name'])) {
+			$extensao = $this->extensao($_FILES['logo']['name']);
 
 			$nomedoarquivo = "img/" . $this->generateRandomString(20) . "." . $extensao;
 
-			$return = $this->awslib->uploadFile($_FILES['image'], $nomedoarquivo);
+			$return = $this->awslib->uploadFile($_FILES['logo'], $nomedoarquivo);
 
 			if ($nomedoarquivo != "") {
-				$dados['img'] =  $nomedoarquivo;
+				$dados['logo'] =  $nomedoarquivo;
+			}
+		}
+
+		if (!empty($_FILES['imgMissao']['name'])) {
+			$extensao = $this->extensao($_FILES['imgMissao']['name']);
+
+			$nomedoarquivo = "imgMissao/" . $this->generateRandomString(20) . "." . $extensao;
+
+			$return = $this->awslib->uploadFile($_FILES['imgMissao'], $nomedoarquivo);
+
+
+			if ($nomedoarquivo != "") {
+				$dados['imgMissao'] =  $nomedoarquivo;
 			}
 		}
 
 
 
 		$this->cursos_model->insert($dados);
-		redirect("Cursos");
+		redirect("Companys");
 	}
 }

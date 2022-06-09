@@ -53,6 +53,49 @@
                         </div>
                     </div>
 
+
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col">
+                            <label>Sobre</label>
+                            <textarea type="text" class="form-control" rows=10  name="sobre" id="sobre"><?php if (isset($partner)) echo $partner->sobre; ?></textarea>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col">
+                            <label>Visão</label>
+                            <textarea type="text" class="form-control" rows=2  name="visao" id="visao"><?php if (isset($partner)) echo $partner->visao; ?></textarea>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="row">
+
+                        <div class="col-2">
+                            <label>Imagem área sobre</label>
+                            <input type="file" name="imgMissao" id="imgMissao">
+                        </div>
+                        <?php
+                        if (isset($partner)) :
+                        ?>
+                            <div class="col-2"></div>
+                            <div class="col-4">
+                                <img style="height: 100px;" src="<?php echo BASE_URL_IMAGEM . $partner->imgMissao; ?>">
+                            </div>
+
+                        <?php
+                        endif;
+                        ?>
+
+
+                    </div>
+
+
                     <br />
 
 
