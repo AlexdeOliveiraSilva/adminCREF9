@@ -53,13 +53,13 @@
                     <br />
                     <div class="row">
                         <div class="col">
-                            <label>Código CREF</label>
+                            <label>Código</label>
                             <input type="text" value="<?php if (isset($partner)) echo $partner->code; ?>" class="form-control" placeholder="Registro CREF" name="code" id="code">
                         </div>
 
                         <div class="col">
                             <label>Vencimento do mandato</label>
-                            <input type="text" value="<?php if (isset($partner)) echo date("d/m/Y", strtotime($partner->dueDate)); ?>" class="form-control" placeholder="__/__/____" name="dueDate" id="dueDate">
+                            <input type="text" value="<?php if (isset($partner)) if (!empty($partner->dueDate)) echo date("d/m/Y", strtotime($partner->dueDate)); ?>" class="form-control" placeholder="__/__/____" name="dueDate" id="dueDate">
                         </div>
 
 
