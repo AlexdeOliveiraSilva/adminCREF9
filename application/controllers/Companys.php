@@ -27,7 +27,7 @@ class Companys extends CI_Controller
 	{
 		$this->load->model('companys_model');
 		$data = array();
-		$data['title'] = "Atualizar curso";
+		$data['title'] = "Atualizar empresa";
 		$data['action'] = base_url('index.php/Companys/update/' . $id);
 		$data['pagina'] = "addcompany";
 		$data['partner'] = $this->companys_model->select($id);
@@ -38,7 +38,7 @@ class Companys extends CI_Controller
 	{
 		$this->load->model('companys_model');
 		$data = array();
-		$data['title'] = "Adicionar curso";
+		$data['title'] = "Adicionar empresa";
 		$data['action'] = base_url('index.php/Companys/save');
 		$data['pagina'] = "addcompany";
 

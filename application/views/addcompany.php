@@ -53,6 +53,43 @@
                         </div>
                     </div>
 
+                    <br />
+
+                    <div class="row">
+                        <div class="col">
+                            <label>Endereço</label>
+                            <input type="text" class="form-control" placeholder="Endreço" value="<?php if (isset($partner)) echo $partner->address; ?>" autofocus=true name="address" id="address">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>Facebook</label>
+                            <input type="text" class="form-control" placeholder="Facebook" value="<?php if (isset($partner)) echo $partner->facebook; ?>" autofocus=true name="facebook" id="facebook">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>Instagram</label>
+                            <input type="text" class="form-control" placeholder="Instagram" value="<?php if (isset($partner)) echo $partner->instagram; ?>" autofocus=true name="instagram" id="instagram">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>E-mail</label>
+                            <input type="text" class="form-control" placeholder="E-mail" value="<?php if (isset($partner)) echo $partner->email; ?>" autofocus=true name="email" id="email">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>Telefone</label>
+                            <input type="text" class="form-control" placeholder="Telefone" value="<?php if (isset($partner)) echo $partner->phone; ?>" autofocus=true name="phone" id="phone">
+                        </div>
+                    </div>
+
 
 
                     <br />
@@ -60,7 +97,7 @@
                     <div class="row">
                         <div class="col">
                             <label>Sobre</label>
-                            <textarea type="text" class="form-control" rows=10  name="sobre" id="sobre"><?php if (isset($partner)) echo $partner->sobre; ?></textarea>
+                            <textarea type="text" class="form-control" rows=10 name="sobre" id="sobre"><?php if (isset($partner)) echo $partner->sobre; ?></textarea>
                         </div>
                     </div>
 
@@ -69,7 +106,7 @@
                     <div class="row">
                         <div class="col">
                             <label>Visão</label>
-                            <textarea type="text" class="form-control" rows=2  name="visao" id="visao"><?php if (isset($partner)) echo $partner->visao; ?></textarea>
+                            <textarea type="text" class="form-control" rows=2 name="visao" id="visao"><?php if (isset($partner)) echo $partner->visao; ?></textarea>
                         </div>
                     </div>
 
