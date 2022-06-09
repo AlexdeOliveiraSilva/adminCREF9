@@ -33,6 +33,7 @@
                             <th>Nome</th>
                             <th>Cargo</th>
                             <th>Validade</th>
+                            <th>Empresa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,7 +50,10 @@
                                     <?php echo $item->office; ?>
                                 </td>
                                 <td>
-                                    <?php echo date("d/m/Y", strtotime($item->dueDate)); ?>
+                                    <?php if (!empty($item->dueDate)) echo date("d/m/Y", strtotime($item->dueDate)); ?>
+                                </td>
+                                <td>
+                                    <?php echo $item->companyName; ?>
                                 </td>
                             </tr>
                         <?php

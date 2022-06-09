@@ -18,8 +18,9 @@ class Diretoria_model extends CI_Model
 
     public function selectAll()
     {
-        $this->db->select("directions.*");
+        $this->db->select("directions.*, companys.name as companyName");
         $this->db->from("directions");
+        $this->db->join("companys", "directions.companys = companys.id ");
         $this->db->order_by("ord", "asc");
 
         $query = $this->db->get();
