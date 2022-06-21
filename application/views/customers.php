@@ -18,7 +18,22 @@
 <section class="content">
   <div class="container-fluid">
 
-   
+    <div class="row">
+      <div class="col-lg-12">
+        <select name="company" class="form-control" onchange="location='<?php echo base_url('index.php/Customers/index');?>/' + this.value;">
+            <?php
+            echo "<option value=\"\">Todas Empresa</option>";
+                  foreach($companys as $item){
+                    echo "<option value='".$item->id."'";
+                    if($item->id == $companyId){
+                      echo " selected";
+                    }
+                    echo ">".$item->name."</option>";
+                  }
+            ?>
+        </select>
+      </div>
+    </div><br />
       <div class="card">
         <div class="card-header">
           Formulário

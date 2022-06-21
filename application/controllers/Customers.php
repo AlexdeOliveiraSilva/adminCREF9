@@ -16,12 +16,16 @@ class Customers extends CI_Controller
 
 
 
-	public function index()
+	public function index($company = null)
 	{
+		$this->load->model('companys_model');
 		$this->load->model('customers_model');
 		$data = array();
 		$data['pagina'] = "customers";
-		$data['list'] = $this->customers_model->selectAll();
+		$data['list'] = $this->customers_model->selectAll($company);
+		$data['companys'] = $this->companys_model->selectAll();
+		$data['companyId'] = $company;
+
 		$this->load->view('home', $data);
 	}
 
@@ -71,8 +75,10 @@ class Customers extends CI_Controller
 		$this->load->model('user_model');
 		$dados = $this->input->post();
 		$dados['situation'] = 1;
-		if($dados['password'] != ""){
+		if(!empty($dados['password'])){
 			$dados['password'] = md5($dados['password']);
+		}else{
+			unset($dados['password']);
 		}
 		$this->customers_model->update($dados, $id);
 
@@ -84,6 +90,7 @@ class Customers extends CI_Controller
 		$this->load->model('customers_model');
 		$dados = $this->input->post();
 		$dados['password'] = md5($dados['password']);
+		// print_r($dados);die;
 		$this->customers_model->insert($dados);
 		redirect("Customers");
 	}

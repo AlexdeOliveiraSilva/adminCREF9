@@ -26,6 +26,9 @@ class Customers_model extends CI_Model
         $this->db->order_by("users.name", "asc");
         $this->db->where("users.situation", 1);
         $this->db->where("companys.situation", 1);
+        if($company !==null){
+            $this->db->where("companys.id", $company);
+        }
         $query = $this->db->get();
         $result = $query->result();
         return $result;
