@@ -26,7 +26,7 @@ $whitelist = array(
     'localhost:8080'
 );
 if (!in_array($_SERVER['HTTP_HOST'], $whitelist)) {
-    $config['base_url'] = 'http://admin.crefprbeneficios.com.br';
+    $config['base_url'] = 'https://admin.clubbr.com.br/';
 } else {
     $config['base_url'] = 'http://localhost:8080/';
 }
